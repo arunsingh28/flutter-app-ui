@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget{
-  
+class HomePage extends StatelessWidget {
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     print(context);
     return Scaffold(
       appBar: buildAppBar(),
       drawer: Drawer(
-        child: Container(
-          child: Text('Menu'),
-        )
-      ),
+          child: Container(
+        child: Text('Menu'),
+      )),
     );
   }
 
   @override
   AppBar buildAppBar() {
     return AppBar(
-      title: Text("Help on"),
-      
+      title: Text("Help on",
+      ),
+      backgroundColor: Color.fromARGB(952, 955, 986, 987),
     );
   }
 }
