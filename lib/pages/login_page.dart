@@ -7,9 +7,10 @@ class LoginPage extends StatelessWidget {
         color: Colors.white,
         child: Column(
           children: [
-            Image.network(
-                "https://ouch-cdn2.icons8.com/wRCTCTzmiqQDscR1DIElpWT4a7cb5NyPJYUVKgUx2oo/rs:fit:1216:912/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvMTky/Lzc5NWMyY2VlLWIx/MzAtNDMyOS1hZTdj/LTc2ZDY5MmVlMWNm/Ny5zdmc.png",
-                fit: BoxFit.cover),
+            // Image.network(
+            //     "https://ouch-cdn2.icons8.com/wRCTCTzmiqQDscR1DIElpWT4a7cb5NyPJYUVKgUx2oo/rs:fit:1216:912/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvMTky/Lzc5NWMyY2VlLWIx/MzAtNDMyOS1hZTdj/LTc2ZDY5MmVlMWNm/Ny5zdmc.png",
+            //     fit: BoxFit.cover),
+            Image.asset("assets/images/login.png", fit: BoxFit.cover),
             SizedBox(height: 20),
             Text(
               "Login",
