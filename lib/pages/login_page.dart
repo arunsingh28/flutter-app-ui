@@ -17,8 +17,9 @@ class LoginPage extends StatelessWidget {
               style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
-                  color: Colors.red[600]),
+                  color: Colors.blue[400]),
             ),
+            // for padding
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.all(20.0),
@@ -26,7 +27,12 @@ class LoginPage extends StatelessWidget {
                 children: [
                   TextField(
                     decoration: InputDecoration(
-                        labelText: "Email/Username", icon: Icon(Icons.mail)
+                        focusedBorder: new OutlineInputBorder(
+                            borderSide: BorderSide(
+                          color: Colors.blue,
+                        )),
+                        labelText: "Email/Username",
+                        icon: Icon(Icons.mail)
                         // hintText: "Enter E-mail/Username"
                         ),
                   ),
@@ -36,7 +42,7 @@ class LoginPage extends StatelessWidget {
                     decoration: InputDecoration(
                         focusedBorder: new OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Colors.red,
+                            color: Colors.blue,
                           ),
                         ),
                         labelText: "Password",
@@ -45,13 +51,13 @@ class LoginPage extends StatelessWidget {
                         ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(50.0),
+                    padding: const EdgeInsets.all(70.0),
                     child: ElevatedButton(
                       onPressed: () {
                         print('button press');
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: Colors.red[400],
+                          primary: Colors.blue[400],
                           onSurface: Colors.grey,
                           // text color
                           onPrimary: Colors.white,

@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
+        // primarySwatch: Colors.indigo,
         fontFamily: GoogleFonts.lato().fontFamily,
       ),
       // routing is provided by the MaterialApp widget
