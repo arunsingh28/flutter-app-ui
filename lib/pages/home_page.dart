@@ -12,10 +12,10 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  
   AppBar buildAppBar() {
     return AppBar(
-      title: Text("Help on",
+      title: Text(
+        "Help on",
       ),
       backgroundColor: Color.fromARGB(952, 955, 986, 987),
     );

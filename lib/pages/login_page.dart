@@ -12,7 +12,7 @@ class LoginPage extends StatelessWidget {
                 fit: BoxFit.cover),
             SizedBox(height: 20),
             Text(
-              "Login to Arun's World",
+              "Login",
               style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
@@ -33,30 +33,30 @@ class LoginPage extends StatelessWidget {
                   TextField(
                     obscureText: true,
                     decoration: InputDecoration(
-                      focusedBorder:new OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.red,),
-                      ),
-                      labelText: "Password", icon: Icon(Icons.lock)
+                        focusedBorder: new OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.red,
+                          ),
+                        ),
+                        labelText: "Password",
+                        icon: Icon(Icons.lock)
                         // hintText: "Enter E-mail/Username"
-                      ),
+                        ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(50.0),
                     child: ElevatedButton(
-                      onPressed: (){
+                      onPressed: () {
                         print('button press');
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.red[300],
-                        onSurface: Colors.grey,
-                        // text color 
-                        onPrimary: Colors.white,
-                        elevation: 7,
-                        textStyle: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20
-                        )
-                      ),
+                          primary: Colors.red[400],
+                          onSurface: Colors.grey,
+                          // text color
+                          onPrimary: Colors.white,
+                          elevation: 7,
+                          textStyle:
+                              TextStyle(color: Colors.white, fontSize: 20)),
                       child: Text('Login'),
                     ),
                   )
