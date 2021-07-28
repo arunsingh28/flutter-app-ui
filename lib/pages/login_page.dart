@@ -8,6 +8,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   String name = '';
+  bool changeButton = false;
 
   @override
   Widget build(BuildContext context) {
@@ -67,17 +68,24 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                     ),
                     SizedBox(height: 40),
-                    Container(
-                      width: 300,
-                      height: 50,
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Login',
-                        style: TextStyle(color: Colors.white, fontSize: 20),
+                    InkWell(
+                      onTap: () {
+                        changeButton = true;
+                        // Navigator.pushNamed(context, MyRoutes.homeRoute);
+                      },
+                      child: AnimatedContainer(
+                        duration: Duration(seconds: 1),
+                        width: changeButton ? 100 : 200,
+                        height: 50,
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Login',
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
+                        decoration: BoxDecoration(
+                            color: Colors.blue[400],
+                            borderRadius: BorderRadius.circular(4)),
                       ),
-                      decoration: BoxDecoration(
-                          color: Colors.blue[400],
-                          borderRadius: BorderRadius.circular(4)),
                     )
                     // child: ElevatedButton(
                     //   onPressed: () {
