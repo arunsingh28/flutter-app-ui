@@ -1,3 +1,4 @@
+import 'package:first_app/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'pages/home_page.dart';
 import 'pages/login_page.dart';
@@ -21,8 +22,8 @@ class MyApp extends StatelessWidget {
       ),
       // routing is provided by the MaterialApp widget
       routes: {
-        // "/": (context) => HomePage(),
-        "/": (context) => LoginPage(),
+        MyRoutes.homeRoute: (context) => HomePage(),
+        MyRoutes.loginRoute: (context) => LoginPage(),
       },
     );
   }
