@@ -13,7 +13,6 @@ class HomePage extends StatelessWidget {
       title: Text(
         "Help on",
       ),
-      backgroundColor: Colors.blue[400],
     );
   }
 }
