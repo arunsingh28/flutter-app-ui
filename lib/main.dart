@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
       // remove debug banner
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
-      theme: MyTheme.dartTheme(context),
+      theme: MyTheme.lightTheme(context),
+      darkTheme: MyTheme.dartTheme(context),
       initialRoute: MyRoutes.homeRoute,
       // routing is provided by the MaterialApp widget
       routes: {
