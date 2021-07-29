@@ -1,4 +1,5 @@
 import 'package:first_app/utils/routes.dart';
+import 'package:first_app/widgets/theme.dart';
 import 'package:flutter/material.dart';
 import 'pages/home_page.dart';
 import 'pages/login_page.dart';
@@ -16,10 +17,7 @@ class MyApp extends StatelessWidget {
       // remove debug banner
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
-      theme: ThemeData(
-        // primarySwatch: Colors.indigo,
-        fontFamily: GoogleFonts.lato().fontFamily,
-      ),
+      theme: MyTheme.dartTheme(context),
       initialRoute: MyRoutes.homeRoute,
       // routing is provided by the MaterialApp widget
       routes: {
