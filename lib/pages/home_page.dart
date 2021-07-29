@@ -1,15 +1,10 @@
+import 'package:first_app/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: buildAppBar(),
-      drawer: Drawer(
-          child: Container(
-        child: Text('Menu'),
-      )),
-    );
+    return Scaffold(appBar: buildAppBar(), drawer: MyDrawer());
   }
 
   AppBar buildAppBar() {
