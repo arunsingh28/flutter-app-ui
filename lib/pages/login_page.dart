@@ -13,14 +13,16 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
 
   moveToHome(BuildContext context) async {
-    setState(() {
-      changeButton = true;
-    });
-    await Future.delayed(Duration(seconds: 1));
-    await Navigator.pushNamed(context, MyRoutes.homeRoute);
-    setState(() {
-      changeButton = false;
-    });
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        changeButton = true;
+      });
+      await Future.delayed(Duration(seconds: 1));
+      await Navigator.pushNamed(context, MyRoutes.homeRoute);
+      setState(() {
+        changeButton = false;
+      });
+    }
   }
 
   @override
@@ -41,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  "Login $name",
+                  "Login",
                   style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
@@ -58,6 +60,12 @@ class _LoginPageState extends State<LoginPage> {
                           name = e;
                           setState(() {});
                         },
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter a Email/Username';
+                          }
+                          return null;
+                        },
                         decoration: InputDecoration(
                             focusedBorder: new OutlineInputBorder(
                                 borderSide: BorderSide(
@@ -71,6 +79,14 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(height: 10),
                       TextFormField(
                         obscureText: true,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter a password';
+                          } else if (value.length < 6) {
+                            return 'Password length atlest 6 char';
+                          }
+                          return null;
+                        },
                         decoration: InputDecoration(
                             focusedBorder: new OutlineInputBorder(
                               borderSide: BorderSide(
@@ -78,9 +94,8 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                             labelText: "Password",
-                            icon: Icon(Icons.lock)
-                            // hintText: "Enter E-mail/Username"
-                            ),
+                            icon: Icon(Icons.lock),
+                            hintText: "Enter E-mail/Username"),
                       ),
                       SizedBox(height: 40),
                       Material(
