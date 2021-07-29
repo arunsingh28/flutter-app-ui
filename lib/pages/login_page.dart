@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   children: [
-                    TextField(
+                    TextFormField(
                       onChanged: (e) {
                         name = e;
                         setState(() {});
@@ -54,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                     ),
                     SizedBox(height: 10),
-                    TextField(
+                    TextFormField(
                       obscureText: true,
                       decoration: InputDecoration(
                           focusedBorder: new OutlineInputBorder(
@@ -68,33 +68,35 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                     ),
                     SizedBox(height: 40),
-                    InkWell(
-                      onTap: () async {
-                        setState(() {
-                          changeButton = true;
-                        });
-                        await Future.delayed(Duration(seconds: 1));
-                        Navigator.pushNamed(context, MyRoutes.homeRoute);
-                      },
-                      child: AnimatedContainer(
-                        duration: Duration(seconds: 1),
-                        width: changeButton ? 50 : 150,
-                        height: 50,
-                        alignment: Alignment.center,
-                        child: changeButton
-                            ? Icon(Icons.done, color: Colors.white)
-                            : Text(
-                                'Login',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 20),
-                              ),
-                        decoration: BoxDecoration(
-                            color: Colors.blue[400],
-                            // shape: changeButton
-                            // ? BoxShape.circle
-                            // : BoxShape.rectangle,
-                            borderRadius:
-                                BorderRadius.circular(changeButton ? 50 : 8)),
+                    Material(
+                      color: Colors.blue[400],
+                      borderRadius:
+                          BorderRadius.circular(changeButton ? 50 : 8),
+                      child: InkWell(
+                        onTap: () async {
+                          setState(() {
+                            changeButton = true;
+                          });
+                          await Future.delayed(Duration(seconds: 1));
+                          await Navigator.pushNamed(
+                              context, MyRoutes.homeRoute);
+                          setState(() {
+                            changeButton = false;
+                          });
+                        },
+                        child: AnimatedContainer(
+                          duration: Duration(seconds: 1),
+                          width: changeButton ? 50 : 150,
+                          height: 50,
+                          alignment: Alignment.center,
+                          child: changeButton
+                              ? Icon(Icons.done, color: Colors.white)
+                              : Text(
+                                  'Login',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 20),
+                                ),
+                        ),
                       ),
                     )
                     // child: ElevatedButton(
