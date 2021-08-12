@@ -2,7 +2,7 @@ import 'package:first_app/model/catalog.dart';
 import 'package:flutter/material.dart';
 
 class ItemWidget extends StatelessWidget {
-  final Item item;
+  late Item item;
 
   const ItemWidget({Key? key, @required this.item}) : super(key: key);
 

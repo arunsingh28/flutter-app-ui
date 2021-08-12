@@ -6,14 +6,22 @@ class CatelogModal {
 }
 
 class Item {
-  final int id;
-  final String name;
-  final String desc;
-  final num price;
-  final String color;
-  final String image;
+  late int id;
+  late String name;
+  late String desc;
+  late num price;
+  late String color;
+  late String image;
 
-  Item(this.id, this.name, this.desc, this.price, this.image, this.color);
+  Item(
+      int id, String name, String desc, num price, String color, String image) {
+    this.id = id;
+    this.name = name;
+    this.desc = desc;
+    this.price = price;
+    this.color = color;
+    this.image = image;
+  }
 }
 
 final products = [
