@@ -13,7 +13,7 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
 
   moveToHome(BuildContext context) async {
-    if (_formKey.currentState!.validate()) {
+    if (_formKey.currentState.validate()) {
       setState(() {
         changeButton = true;
       });
