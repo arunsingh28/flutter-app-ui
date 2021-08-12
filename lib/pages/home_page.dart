@@ -8,14 +8,14 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: buildAppBar(),
-        body: ListView.builder(
-          itemCount: CatelogModal.items.length,
-          itemBuilder: (context, index) {
-            return ItemWidget(
-              item: CatelogModal.items[index],
-            );
-          },
-        ),
+        // body: ListView.builder(
+        //   itemCount: CatelogModal.items.length,
+        //   itemBuilder: (context, index) {
+        //     return ItemWidget(
+        //       item: CatelogModal.items[index],
+        //     );
+        //   },
+        // ),
         drawer: MyDrawer());
   }
 

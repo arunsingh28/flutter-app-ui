@@ -12,14 +12,15 @@ class MyDrawer extends StatelessWidget {
         child: ListView(
           children: [
             DrawerHeader(
-                padding: EdgeInsets.zero,
-                child: UserAccountsDrawerHeader(
-                    margin: EdgeInsets.zero,
-                    accountName: Text('Arun Singh'),
-                    currentAccountPicture: CircleAvatar(
-                      backgroundImage: NetworkImage(imageUrl),
-                    ),
-                    accountEmail: Text('arunsingh28aug.as@gmail.com'))),
+              padding: EdgeInsets.zero,
+              child: UserAccountsDrawerHeader(
+                  margin: EdgeInsets.zero,
+                  accountName: Text('Arun Singh'),
+                  currentAccountPicture: CircleAvatar(
+                    backgroundImage: NetworkImage(imageUrl),
+                  ),
+                  accountEmail: Text('arunsingh28aug.as@gmail.com')),
+            ),
             ListTile(
               leading: Icon(
                 CupertinoIcons.home,
