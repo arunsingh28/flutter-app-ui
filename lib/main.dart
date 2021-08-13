@@ -1,31 +1,46 @@
-import 'package:first_app/utils/routes.dart';
 import 'package:flutter/material.dart';
-import 'pages/home_page.dart';
-import 'pages/login_page.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
+    int _day = 10;
     return MaterialApp(
-      // remove debug banner
-      debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.dark,
-      theme: ThemeData(
-        // primarySwatch: Colors.indigo,
-        fontFamily: GoogleFonts.lato().fontFamily,
+      home: Material(
+        child: Center(
+          child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('$_day'),
+                TextButton(
+                    onPressed: () {
+                      setState(() {
+                        _day += 1;
+                      });
+                    },
+                    style: TextButton.styleFrom(
+                        primary: Colors.white,
+                        onSurface: Colors.red,
+                        backgroundColor: Colors.red,
+                        padding:
+                            EdgeInsets.symmetric(vertical: 10, horizontal: 20)),
+                    child: Text('Increse'))
+              ],
+            ),
+          ),
+        ),
       ),
-      initialRoute: MyRoutes.loginRoute,
-      // routing is provided by the MaterialApp widget
-      routes: {
-        MyRoutes.homeRoute: (context) => HomePage(),
-        MyRoutes.loginRoute: (context) => LoginPage(),
-      },
     );
   }
 }
