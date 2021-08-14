@@ -15,11 +15,43 @@ class LoginPage extends StatelessWidget {
             fit: BoxFit.contain,
           ),
           SizedBox(
-            height: size.height * .2,
+            height: size.height * .1,
           ),
           Text(
             'Welcome',
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextFormField(
+                  decoration: InputDecoration(
+                    hintText: 'Username/email',
+                  ),
+                ),
+                TextFormField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    hintText: 'Password',
+                  ),
+                ),
+                SizedBox(
+                  height: size.height * .04,
+                ),
+                ElevatedButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.symmetric(
+                          vertical: 14, horizontal: size.width * .3),
+                      backgroundColor: Colors.blue,
+                    ),
+                    child: Text('Login',
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold))),
+              ],
+            ),
           )
         ]),
       ),
