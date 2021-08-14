@@ -1,46 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:learning_app/screens/home_page.dart';
+import 'package:learning_app/screens/login_page.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
   Widget build(BuildContext context) {
-    int _day = 10;
     return MaterialApp(
-      home: Material(
-        child: Center(
-          child: Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('$_day'),
-                TextButton(
-                    onPressed: () {
-                      setState(() {
-                        _day += 1;
-                      });
-                    },
-                    style: TextButton.styleFrom(
-                        primary: Colors.white,
-                        onSurface: Colors.red,
-                        backgroundColor: Colors.red,
-                        padding:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 20)),
-                    child: Text('Increse'))
-              ],
-            ),
-          ),
-        ),
-      ),
+      title: 'App',
+      // home: HomePage(),
+      theme: ThemeData(primarySwatch: Colors.red, primaryColor: Colors.amber),
+      darkTheme: ThemeData(brightness: Brightness.dark),
+      themeMode: ThemeMode.light,
+      routes: {
+        "/": (context) => HomePage(),
+        "/login": (context) => LoginPage()
+      },
     );
   }
 }
