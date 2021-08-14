@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-=======
-import 'package:first_app/utils/routes.dart';
-import 'package:first_app/widgets/theme.dart';
->>>>>>> 844d1b552c140955d012e82f7457198466ce581a
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:learning_app/screens/home_page.dart';
 import 'package:learning_app/screens/login_page.dart';
 
@@ -12,7 +8,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,19 +16,13 @@ class MyApp extends StatelessWidget {
       // remove debug banner
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
-<<<<<<< HEAD
       theme: ThemeData(
-          // primarySwatch: Colors.indigo,
-
-          ),
-=======
-      theme: MyTheme.lightTheme(context),
-      darkTheme: MyTheme.dartTheme(context),
-      initialRoute: MyRoutes.homeRoute,
->>>>>>> 844d1b552c140955d012e82f7457198466ce581a
+        // primarySwatch: Colors.indigo,
+        fontFamily: GoogleFonts.lato().fontFamily,
+      ),
       // routing is provided by the MaterialApp widget
       routes: {
-        "/": (context) => HomePage(),
+        "/": (context) => LoginPage(),
         "/login": (context) => LoginPage(),
       },
     );
