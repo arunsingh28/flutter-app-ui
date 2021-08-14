@@ -1,4 +1,3 @@
-import 'package:first_app/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'pages/home_page.dart';
 import 'pages/login_page.dart';
@@ -17,14 +16,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
       theme: ThemeData(
-        // primarySwatch: Colors.indigo,
-        fontFamily: GoogleFonts.lato().fontFamily,
-      ),
-      initialRoute: MyRoutes.loginRoute,
+          // primarySwatch: Colors.indigo,
+
+          ),
       // routing is provided by the MaterialApp widget
       routes: {
-        MyRoutes.homeRoute: (context) => HomePage(),
-        MyRoutes.loginRoute: (context) => LoginPage(),
+        "/": (context) => HomePage(),
+        "/login": (context) => LoginPage(),
       },
     );
   }
