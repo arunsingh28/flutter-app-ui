@@ -8,11 +8,13 @@ class ItemWidget extends StatelessWidget {
         super(key: key);
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: Image.network(item.image),
-      title: Text(item.name),
-      subtitle: Text(item.desc),
-      trailing: Text("\$${item.price.toString()}"),
+    return Card(
+      child: ListTile(
+        leading: Image.network(item.image),
+        title: Text(item.name),
+        subtitle: Text(item.desc),
+        trailing: Text("\$${item.price.toString()}"),
+      ),
     );
   }
 }
