@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:learning_app/screens/home_page.dart';
 import 'package:learning_app/screens/login_page.dart';
+import 'package:learning_app/utils/routes.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,8 +23,8 @@ class MyApp extends StatelessWidget {
       ),
       // routing is provided by the MaterialApp widget
       routes: {
-        "/": (context) => LoginPage(),
-        "/login": (context) => LoginPage(),
+        MyRoutes.loginRoute: (context) => LoginPage(),
+        MyRoutes.homeRoute: (context) => HomePage(),
       },
     );
   }
