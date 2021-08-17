@@ -1,8 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:learning_app/utils/routes.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key key}) : super(key: key);
+
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final username = TextEditingController();
+  final password = TextEditingController();
+
+  @override
+  void dispose() {
+    username.dispose();
+    password.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +42,13 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextFormField(
+                  controller: username,
                   decoration: InputDecoration(
                     hintText: 'Username/email',
                   ),
                 ),
                 TextFormField(
+                  controller: password,
                   obscureText: true,
                   decoration: InputDecoration(
                     hintText: 'Password',
@@ -43,7 +59,13 @@ class LoginPage extends StatelessWidget {
                 ),
                 ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, MyRoutes.homeRoute);
+                      showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              content: Text('hello:'+username.text+' password'+password.text),
+                            );
+                          });
                     },
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.symmetric(
