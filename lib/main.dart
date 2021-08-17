@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
         // primarySwatch: Colors.indigo,
         fontFamily: GoogleFonts.lato().fontFamily,
       ),
+      initialRoute: MyRoutes.homeRoute,
       // routing is provided by the MaterialApp widget
       routes: {
         MyRoutes.loginRoute: (context) => LoginPage(),
