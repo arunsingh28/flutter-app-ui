@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_app/screens/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key key}) : super(key: key);
@@ -8,14 +9,34 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  // controller for input
   final username = TextEditingController();
   final password = TextEditingController();
 
+  bool changeBtn = false;
+  final _formKey = GlobalKey<FormState>();
   @override
   void dispose() {
     username.dispose();
     password.dispose();
     super.dispose();
+  }
+
+  loginHandler()async{
+     if(_formKey.currentState.validate()){
+       setState(() {
+        changeBtn = true;
+      });
+      await Future.delayed(Duration(seconds: 1));
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return HomePage();
+          },
+        ),
+      );
+     }
   }
 
   @override
@@ -38,44 +59,72 @@ class _LoginPageState extends State<LoginPage> {
           ),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextFormField(
-                  controller: username,
-                  decoration: InputDecoration(
-                    hintText: 'Username/email',
-                  ),
-                ),
-                TextFormField(
-                  controller: password,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    hintText: 'Password',
-                  ),
-                ),
-                SizedBox(
-                  height: size.height * .04,
-                ),
-                ElevatedButton(
-                    onPressed: () {
-                      showDialog(
-                          context: context,
-                          builder: (context) {
-                            return AlertDialog(
-                              content: Text('hello:'+username.text+' password'+password.text),
-                            );
-                          });
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextFormField(
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return "username can not empty";
+                      } else if (value.length < 6) {
+                        return "min length is 6";
+                      }
+                      return null;
                     },
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.symmetric(
-                          vertical: 14, horizontal: size.width * .3),
-                      backgroundColor: Colors.blue,
+                    controller: username,
+                    decoration: InputDecoration(
+                      hintText: 'Enter Username/email',
+                      labelText: 'Username/email'
                     ),
-                    child: Text('Login',
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold))),
-              ],
+                  ),
+                  TextFormField(
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return "password can not empty";
+                      }else if (value.length < 6) {
+                        return "min length is 6";
+                      }
+                      return null;
+                    },
+                    controller: password,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      hintText: 'Enter Password',
+                      labelText: 'Password'
+                    ),
+                  ),
+                  SizedBox(
+                    height: size.height * .04,
+                  ),
+                  // animated button from container
+                  Material(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(changeBtn ? 40 : 4),
+                    child: InkWell(
+                        onTap: ()=>loginHandler(),
+                        child: AnimatedContainer(
+                          duration: Duration(seconds: 1),
+                          height: changeBtn ? 40 : 42,
+                          width: changeBtn ? 50 : 150,
+                          alignment: Alignment.center,
+                          child: changeBtn
+                              ? Icon(
+                                  Icons.done,
+                                  color: Colors.white,
+                                )
+                              : Text(
+                                  'Login',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                        )),
+                  )
+                ],
+              ),
             ),
           )
         ]),
