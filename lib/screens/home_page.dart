@@ -7,12 +7,15 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('App bar'),
       ),
-      body: Center(
-        child: Container(
-          child: Text('asd'),
-        ),
-      ),
       drawer:MyDrawer(),
+      body: Column(
+        children:[ 
+          Container(
+          child: Text('asd'),
+          ),
+          
+        ]
+      ),
     );
   }
 }
